@@ -1,2 +1,2 @@
-# Automatic_Driver_Gaze_Detection
+# Automatic Driver Gaze Detection
 The platform provides researchers and safety professionals with a solution for automatic annotating driver images and videos using AI.
