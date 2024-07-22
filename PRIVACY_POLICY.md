@@ -21,9 +21,6 @@ distraction detection systems and sleep warning systems.
 
 In summary, our research project seeks to develop innovative methodologies for accurately tracking and analyzing drivers’ gaze direction, ultimately contributing to enhanced road safety. We believe that the findings of this study will not only advance scientific knowledge but also have positivetangible benefits for society.
 
-Researchers: Charmaine Noten & Wim Anker</br>
-Supervisor: Frouke Hermens, Open University
-
 ## References
 
 [1] Rob Eenink, Yvonne Barnard, Martin Baumann, Xavier Augros, and Fabian Utesch. Udrive: the european naturalistic driving study nomenclature das
@@ -31,3 +28,6 @@ data acquisition system nd naturalistic driving nds naturalistic driving study s
 infrastructure and vehicle safety and environment, 2014.
 [2] Reinier J Jansen, Sander T van der Kint, and Frouke Hermens. Does agreement mean accuracy? evaluating glance annotation in naturalistic driving
 data. Behavior research methods, 53:430–446, 2021.
+
+Researchers: Charmaine Noten & Wim Anker</br>
+Supervisor: Frouke Hermens, Open University
