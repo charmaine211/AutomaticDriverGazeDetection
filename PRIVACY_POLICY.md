@@ -21,8 +21,8 @@ distraction detection systems and sleep warning systems.
 
 In summary, our research project seeks to develop innovative methodologies for accurately tracking and analyzing drivers’ gaze direction, ultimately contributing to enhanced road safety. We believe that the findings of this study will not only advance scientific knowledge but also have positivetangible benefits for society.
 
-Researchers: Charmaine Noten & Wim Anker
-Supervisor: Frouke Hermans, Open University
+Researchers: Charmaine Noten & Wim Anker</br>
+Supervisor: Frouke Hermens, Open University
 
 ## References
 
