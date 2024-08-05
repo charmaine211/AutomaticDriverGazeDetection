@@ -29,5 +29,5 @@ infrastructure and vehicle safety and environment, 2014.
 [2] Reinier J Jansen, Sander T van der Kint, and Frouke Hermens. Does agreement mean accuracy? evaluating glance annotation in naturalistic driving
 data. Behavior research methods, 53:430–446, 2021.
 
-Researchers: Charmaine Noten & Wim Anker</br>
+Written by: Charmaine Noten & Wim Anker</br>
 Supervisor: Frouke Hermens, Open University
