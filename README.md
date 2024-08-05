@@ -1,6 +1,6 @@
 # Automatic Driver Gaze Detection
 
-Driver Gaze Annotation is a desktop app that helps the user with [labelling](#label) of a dataset with images of a driver, generate a Notebook and YAML document to [train](#train) a YOLO model and [predict](#predict) the class of an image or video showing a driver with a trained model. 
+Driver Gaze Annotation is a desktop app that helps the user with [labelling](#label) of a dataset with images of a driver, generate a Notebook (.ipynb) and YAML (.yml) document to [train](#train) a YOLO model and [predict](#predict) the class of an image or video showing a driver with a trained model. 
 
 You can download the latest release here: [Releases](https://github.com/charmaine211/AutomaticDriverGazeDetection/releases)
 
@@ -10,23 +10,25 @@ We've selected 2 tasks to recognize a driver: Image Classification and Object De
 
 **Image classification**
 
-Image classification is a very simple task and involves the model classifying the entire image into one of a set of classes. The output is a class label and a confidence score. 
-
 ![Image classification](/images/IC%20-%20schema.png)
+
+Image classification is a very simple task and involves the model classifying the entire image into one of a set of classes. The output is a class label and a confidence score. 
 
 **Object detection**
 
-Object detection is a task that involves identifying the location and class of objects in an image or video stream. The output of an object detector is a set of bounding boxes that enclose the objects in the image, along with the location of the boxes, class labels and confidence scores for each box.
-
 ![Object detection](/images/OD%20-%20schema.png)
+
+Object detection is a task that involves identifying the location and class of objects in an image or video stream. The output of an object detector is a set of bounding boxes that enclose the objects in the image, along with the location of the boxes, class labels and confidence scores for each box.
 
 ## Label dataset <a name="label"></a>
 
-To train a model, the user needs labeled images according to a specific file structure. This structure differs for each task.
+To train a model, you need labeled images. Labeling an image means telling the computer what is shown in the image. The models we are using need the images to be labeled in a specific way, and this way can be different for each task.
 
 ### Image Classification <a name="ic-filestructure"></a>
 
 You can label an image by placing it in a folder with the correct class name. The following image shows the file structure:
+
+<img src="/images/ImageClassificationFileTree.png" alt="Image Classification file structure" height="350">
 
 - <span style="color:#74BCD2">root</span>: This directory serves as the main folder for your project and can be named according to your preference.
 - <span style="color:#FA873F">training results</span>: Within this directory, we'll place any files or data related to training results. Its name can also be customized.
@@ -36,11 +38,11 @@ You can label an image by placing it in a folder with the correct class name. Th
 - <span style="color:#EE577E">test</span>: This directory is added to document the final model results. It follows the same structure as the training and validation sets.
 - class_...: Each subdirectory corresponds to a specific class (e.g., class_1, class_2, etc.), containing the related dataset purposes.
 
-<img src="/images/ImageClassificationFileTree.png" alt="Image Classification file structure" height="350">
-
 ### Object Detection <a name="od-filestructure"></a>
 
 Images need to have corresponding label files with the normalized xywh (x-coordinate, y-coordinate, width, height) values of the bounding boxes. The following image shows the file structure:
+
+<img src="/images/ObjectDetectionFileTree.png" alt="Object Detection file structure" height="450">
 
 - <span style="color:#74BCD2">root</span>: This directory serves as the main folder for your project and can be named according to your preference.
 - <span style="color:#FA873F">training results</span>: Within this directory, we'll place any files or data related to training results. Its name can also be customized.
@@ -54,14 +56,12 @@ Images need to have corresponding label files with the normalized xywh (x-coordi
 - <span style="color:#EE577E">val</span>: Similarly, this folder contains the label files for the validation images, following the same naming convention.
 - <span style="color:#EE577E">test</span>: This directory is added to document the final model results, following the same naming convention.
 
-<img src="/images/ObjectDetectionFileTree.png" alt="Object Detection file structure" height="450">
-
 Manually labeling the images will take a lot of work. The application let's you automatically relabel your images. Make sure that your images are in the same file structure as the Image Classification file structure, which means that every image is placed into a folder with the corresponding class name.
 
 <img src="/images/Label%20window.png" alt="Label window" height="350">
 
 1. Navigate to the `Label data` page. 
-2. Make sure your original data follows the same file structure as the [image classification](#ic-filestructure) standard. Add the path to the `Data path` field; in our example, the added path would be `root/dataset`.
+2. Make sure your original data follows the same file structure as the [image classification](#ic-filestructure) standard. Add the path to the `Data path` field; in our example, the path would be `root/dataset`.
 3. Create the file structure to place the labels and images as shown in [object detection](#od-filestructure). Add the path for the labels and images in the `Labels path` field and `Images path` field; in our example, this would be `root/dataset/labels` and `root/dataset/images`.
 4. Press `Label` to make copies of the original images. The application will place them in the `images` folder, and place the corresponding labels in the `labels` folder. This may take a while, depending on the amount of images. Please make sure that only the driver is in the images.
 
@@ -138,7 +138,7 @@ Following the training and validation of the model using various parameters, the
 
 ### Metrics
 
-Once your models have been trained, you can store your results in the `RESULTS_DIR`. If you've followed our file naming convention, this directory will be located at `.../driver_gaze_direction/training_results` on your drive.
+Once your models have been trained, you can store your results in the `RESULTS_DIR`. If you've followed our file naming convention, this directory will be located at `root/training_results`
 
 Depending on the number of models you've trained, navigate to the corresponding `runs/train` directory for the desired training data.
 
@@ -152,7 +152,7 @@ Inside the `runs/train` directory, you'll find several files and a directory cal
   - _Accuracy_: (TP + TN) / (TP + FN + TN + FP). This metric shows the overall correctness of a classification ML model. Note that accuracy may not be suitable for imbalanced datasets.
   - _Recall_: TP / (TP + FN). It assesses whether the model can identify all instances of the target class.
 
-To analyze the data effectively, observe that the training loss decreases over time while the accuracy of the validation set increases. These trends indicate the model's performance and can help determine its effectiveness.
+To analyze the data effectively, make sure that the training loss decreases over time while the accuracy of the validation set increases. This is an indication of the model's performance and can help determine its effectiveness.
 
 - `.../weights`: The directory where your model is saved.
   - `best.pt`: Model that is the result of the _best_ epoch of the training process.
@@ -164,12 +164,12 @@ Choosing between the last and the best-trained model depends on your specific re
 
 ### Predict
 
-Predicting is a very simple task. Upload your model, which can be an object detection or image classification model, along with files containing images of the driver you trained your model on. After uploading all the files, the application will automatically run the analyses.
+Predicting is a very simple task. Upload your trained model (best or last), which can be an object detection or image classification model, along with files containing images or video of the driver you trained your model on. After uploading all the files, the application will automatically run the analyses. 
 
 ![Predict](/images/Predict.png)
 
 ### Analyse results
 
-After analyzing, a copy of your files with your annotations will be uploaded to your system. You can also download a CSV file containing the filename, the frame, the class that has been detected, the probability, and, in the case of object detection, the bounding box. The application detects the task based on the model, so you don't need to explicitly mention it.
+After analysing, a copy of your files with your annotations will be uploaded to your system. You can also download a CSV file containing the filename, the frame, the class that has been detected, the probability, and, in the case of object detection, the bounding box. The application detects the task based on the model, so you don't need to explicitly mention it.
 
 ![Analyse](/images/Analyse.png)
