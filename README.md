@@ -1,9 +1,8 @@
 # Automatic Driver Gaze Detection
-The platform provides researchers and safety professionals with a solution for automatic annotating driver images and videos using AI.
-
-# Automatic Driver Gaze Annotation
 
 Driver Gaze Annotation is a desktop app that helps the user with [labelling](#label) of a dataset with images of a driver, generate a Notebook and YAML document to [train](#train) a YOLO model and [predict](#predict) the class of an image or video showing a driver with a trained model. 
+
+You can download the latest release here: [Releases](https://github.com/charmaine211/AutomaticDriverGazeDetection/releases)
 
 ![Homescreen](/images/Homescreen.png)
 
