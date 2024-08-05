@@ -1,6 +1,6 @@
 # Automatic Driver Gaze Detection
 
-Driver Gaze Annotation is a desktop app that helps the user with [labelling](#label) of a dataset with images of a driver, generate a Notebook (.ipynb) and YAML (.yml) document to [train](#train) a YOLO model and [predict](#predict) the class of an image or video showing a driver with a trained model. 
+Driver Gaze Annotation is a desktop app that helps the user with [labeling](#label) of a dataset with images of a driver, generating a Notebook (.ipynb) and YAML (.yml) document to [train](#train) a YOLO model and [predicting](#predict) the class of an image or video showing a driver with a trained model. 
 
 You can download the latest release here: [Releases](https://github.com/charmaine211/AutomaticDriverGazeDetection/releases)
 
