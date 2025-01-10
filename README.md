@@ -1,6 +1,6 @@
 # Automatic Driver Gaze Detection
 
-Driver Gaze Annotation is a desktop app that helps the user with [labeling](#label) of a dataset with images of a driver, generating a Notebook (.ipynb) and YAML (.yml) document to [train](#train) a YOLO model and [predicting](#predict) the class of an image or video showing a driver with a trained model. 
+Driver Gaze Annotation is a desktop app that helps the user with [labelling](#label) of a dataset with images of a driver, generating a Notebook (.ipynb) and YAML (.yml) document to [train](#train) a YOLO model and [predicting](#predict) the class of an image or video showing a driver with a trained model. 
 
 You can download the latest release here: [Releases](https://github.com/charmaine211/AutomaticDriverGazeDetection/releases)
 
@@ -22,7 +22,12 @@ Object detection is a task that involves identifying the location and class of o
 
 ## Label dataset <a name="label"></a>
 
-To train a model, you need labeled images. Labeling an image means telling the computer what is shown in the image. The models we are using need the images to be labeled in a specific way, and this way can be different for each task.
+To train a model, you need labelled images. Labelling an image means telling the computer what is shown in the image. The models we are using need the images to be labeled in a specific way, and this way can be different for each task.
+
+Video instructions:
+
+- [Instruction - Labelling Dataset For Image Classification](https://youtu.be/HW69zI7CNKQ)
+- [Instruction - Labelling Dataset For Object Detection](https://youtu.be/pwOoCZuG5D0)
 
 ### Image Classification <a name="ic-filestructure"></a>
 
@@ -63,11 +68,16 @@ Manually labeling the images will take a lot of work. The application let's you 
 1. Navigate to the `Label data` page. 
 2. Make sure your original data follows the same file structure as the [image classification](#ic-filestructure) standard. Add the path to the `Data path` field; in our example, the path would be `root/dataset`.
 3. Create the file structure to place the labels and images as shown in [object detection](#od-filestructure). Add the path for the labels and images in the `Labels path` field and `Images path` field; in our example, this would be `root/dataset/labels` and `root/dataset/images`.
-4. Press `Label` to make copies of the original images. The application will place them in the `images` folder, and place the corresponding labels in the `labels` folder. This may take a while, depending on the amount of images. Please make sure that only the driver is in the images.
+4. Press `Label` to make copies of the original images. The application will place them in the `images` folder and the corresponding labels in the `labels` folder. This may take a while, depending on the number of images. Please make sure that only the driver is in the images.
 
 ## Train model <a name="train"></a>
 
-To train an AI model, you need a labeled dataset in the right file structure and a computer with a good graphics card. Our application lets you download the code to train a YOLOv8 or YOLOv9 model. We recommend using [Lightning.AI](https://lightning.ai/) to run the code and train your model.
+To train an AI model, you need a labelled dataset in the right file structure and a computer with a good graphics card. Our application lets you download the code to train a YOLOv8 or YOLOv9 model. We recommend using [Lightning.AI](https://lightning.ai/) to run the code and train your model.
+
+Video instructions:
+
+- [Instruction - Training An Image Classification Model](https://youtu.be/NMM9BDRcjWU)
+- [Instruction - Training An Object Detection Model](https://youtu.be/ZujOy_GrcRU)
 
 ### Platform to train model
 
@@ -164,12 +174,16 @@ Choosing between the last and the best-trained model depends on your specific re
 
 ### Predict
 
-Predicting is a very simple task. Upload your trained model (best or last), which can be an object detection or image classification model, along with files containing images or video of the driver you trained your model on. After uploading all the files, the application will automatically run the analyses. 
+Predicting is a straightforward task. Upload your trained model (best or last), which can be an object detection or image classification model, along with files containing images or video of the driver you trained your model on. After uploading all the files, the application will automatically run the analyses. 
+
+Video instructions:
+
+- [Instruction - Making Predictions With A Trained Model](https://youtu.be/KpvPJ98CwWg)
 
 ![Predict](/images/Predict.png)
 
 ### Analyse results
 
-After analysing, a copy of your files with your annotations will be uploaded to your system. You can also download a CSV file containing the filename, the frame, the class that has been detected, the probability, and, in the case of object detection, the bounding box. The application detects the task based on the model, so you don't need to explicitly mention it.
+After analysis, a copy of your files with your annotations will be uploaded to your system. You can also download a CSV file containing the filename, the frame, the class that has been detected, the probability, and, in the case of object detection, the bounding box. The application detects the task based on the model, so you don't need to explicitly mention it.
 
 ![Analyse](/images/Analyse.png)
